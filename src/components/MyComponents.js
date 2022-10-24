@@ -8,8 +8,14 @@ class MyComponent extends React.Component{
         address: 'binh thạnh'
     };
 
-    handleOnClick(even){
-        console.log("click my button");
+    handleOnClick = (even) => {
+        // console.log("click my button");
+        // console.log('My name is :' ,this.state.name);
+
+        this.setState({
+            name: 'thanh long',
+            age: Math.floor((Math.random() *100) + 1)
+        })
     }
     handleOnMouseOver(even){
         console.log(even.pageX);
@@ -18,9 +24,9 @@ class MyComponent extends React.Component{
     render(){
         return (
             <div>
-               My name {this.state.name} and I'm from {this.state.address}
-                <button onClick={this.handleOnClick}>Click me</button>
-                <button onMouseOver={this.handleOnMouseOver}>Mouse Over me</button>
+               My name {this.state.name} and I'm  {this.state.age} old
+                <button onClick = {(even) => {this.handleOnClick(even)}}>Click me</button>
+                <button onMouseOver = {this.handleOnMouseOver}>Mouse Over me</button>
             </div>
         );
     }
