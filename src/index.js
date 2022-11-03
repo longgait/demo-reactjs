@@ -12,15 +12,18 @@ import {
 } from "react-router-dom";
 import User from './components/User/user';
 import Admin from './components/Admin/admin';
+import Homepage from './components/Homepage/homepage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     {/* <React.StrictMode> */}
     <BrowserRouter>
       <Routes>
-        <Route path ='/' element ={<App/>}/>
-        <Route path ='/users' element ={<User/>}/>
-        <Route path ='/admins' element ={<Admin/>}/>
+        <Route path ='/' element ={<App/>}>
+          <Route index element ={<Homepage/>}/>
+          <Route path ='/users' element ={<User/>}/>
+          <Route path ='/admins' element ={<Admin/>}/>
+        </Route>  
       </Routes>
     </BrowserRouter>
     
